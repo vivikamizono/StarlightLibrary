@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bem vindos à Starlight Library</title>
+    <style>
+        body {
+            background-color: #f1ffcf; /* Cor de fundo do corpo da página */
+            font-family: Arial, sans-serif; /* Define a fonte Arial para o corpo do documento */
+        }
+
+        .title {
+            background-color: #9cd6c8; /* Cor de fundo do título */
+            padding: 15px; /* Adiciona espaço interno ao redor do título */
+            color: #e57c3a; /* Cor do texto do título */
+            text-align: center; /* Centraliza o texto */
+        }
+
+        .container {
+            text-align: center; /* Centraliza conteúdo horizontalmente */
+            margin-top: 30px; /* Espaço superior para melhor visualização */
+        }
+
+        .btn {
+            background-color: #ffd700; /* Cor de fundo do botão */
+            color: #333; /* Cor do texto do botão */
+            padding: 10px 20px; /* Espaçamento interno */
+            border: none; /* Remove a borda */
+            border-radius: 5px; /* Borda arredondada */
+            text-decoration: none; /* Remove decoração de texto */
+            font-size: 16px; /* Tamanho da fonte */
+            margin: 10px; /* Adiciona margem ao botão */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Bem vindos à Starlight Library</h1>
+    <h3>Na Starlight Library, nossa visão é simples: queremos capacitar nossos leitores a explorar o mundo dos livros com liberdade e autonomia. Acreditamos que a tecnologia pode desempenhar um papel fundamental nessa jornada. Imagine poder doar ou alugar um livro com apenas alguns cliques, sem a necessidade de intermediários. Na nossa biblioteca, estamos comprometidos em oferecer uma experiência moderna e acessível, onde cada leitor possa navegar por nosso acervo e se conectar com histórias que os inspiram, tudo isso com o poder da tecnologia ao alcance de suas mãos. Junte-se a nós e embarque nessa jornada de descoberta e aprendizado na Starlight Library </h3>
+    <div class="container">
+        <a href="{{ url_for('search') }}" class="btn">Procurar Livro</a>
+        <a href="{{ url_for('create') }}" class="btn">Adicionar um Novo Livro</a>
+    </div>
+    <ul>
+      {% for funcionario in funcionarios %}
+        <li>
+          {{ funcionario.nome_completo }} ({{ funcionario.rg }})
+          <a href="{{ url_for('update', id=funcionario.id) }}">Editar</a>
+          <a href="{{ url_for('delete', id=funcionario.id) }}">Excluir</a>
+        </li>
+      {% endfor %}
+    </ul>
+</body>
+</html>
