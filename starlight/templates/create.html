@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Adicionar um Livro Novo</title>
+  <style>
+      body {
+          background-color: #f1ffcf; /* Cor de fundo do corpo da página */
+      }
+
+      .title {
+          background-color: #9cd6c8; /* Cor de fundo do título */
+          padding: 20px; /* Adiciona espaço interno ao redor do título */
+          color: #e57c3a; /* Cor do texto do título */
+          text-align: center; /* Centraliza o texto */
+      }
+
+      .container {
+          text-align: center; /* Centraliza conteúdo horizontalmente */
+          margin-top: 20px; /* Espaço superior para melhor visualização */
+      }
+
+      form {
+          width: 50%; /* Define a largura do formulário */
+          margin: 0 auto; /* Centraliza o formulário horizontalmente */
+      }
+
+      .btn {
+          background-color: #ffd700; /* Cor de fundo do botão */
+          color: #333; /* Cor do texto do botão */
+          padding: 10px 20px; /* Espaçamento interno */
+          border: none; /* Remove a borda */
+          border-radius: 5px; /* Borda arredondada */
+          text-decoration: none; /* Remove decoração de texto */
+          font-size: 16px; /* Tamanho da fonte */
+      }
+  </style>
+</head>
+
+<body>
+  <h1 class="title">Criar Livro</h1>
+  <div class="container">
+    <form action="" method="post">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required><br><br>
+      <label for="autor">Autor:</label>
+      <input type="text" id="autor" name="autor" required><br><br>
+      <label for="editora">Editora:</label>
+      <input type="text" id="editora" name="editora" required><br><br>
+      <input type="submit" value="Criar" class="btn">
+    </form>
+  </div>
+</body>
+
+</html>
