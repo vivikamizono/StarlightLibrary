@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Busca de Livros</title>
+  <style>
+
+
+    body {
+        background-color: #f1ffcf; /* Cor de fundo do corpo da página */
+        font-family: 'Roboto', sans-serif; /* Define a fonte do corpo do texto */
+    }
+
+    .title {
+        background-color: #9cd6c8; /* Cor de fundo do título */
+        padding: 20px; /* Adiciona espaço interno ao redor do título */
+        color: #e57c3a; /* Cor do texto do título */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .container {
+        text-align: center; /* Centraliza conteúdo horizontalmente */
+        margin-top: 20px; /* Espaço superior para melhor visualização */
+    }
+
+    form {
+        width: 50%; /* Define a largura do formulário */
+        margin: 0 auto; /* Centraliza o formulário horizontalmente */
+    }
+
+    .btn {
+        background-color: #ffd700; /* Cor de fundo do botão */
+        color: #333; /* Cor do texto do botão */
+        padding: 10px 20px; /* Espaçamento interno */
+        border: none; /* Remove a borda */
+        border-radius: 5px; /* Borda arredondada */
+        text-decoration: none; /* Remove decoração de texto */
+        font-size: 16px; /* Tamanho da fonte */
+    }
+      body {
+          background-color: #f1ffcf; /* Cor de fundo do corpo da página */
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Definir a fonte */
+      }
+
+      .title {
+        background-color: #9cd6c8; /* Cor de fundo do título */
+        padding: 20px; /* Adiciona espaço interno ao redor do título */
+        color: #e57c3a; /* Cor do texto do título */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    form {
+        width: 50%; /* Define a largura do formulário */
+        margin: 0 auto; /* Centraliza o formulário horizontalmente */
+    }
+
+    .btn {
+        background-color: #ffd700; /* Cor de fundo do botão */
+        color: #333; /* Cor do texto do botão */
+        padding: 10px 20px; /* Espaçamento interno */
+        border: none; /* Remove a borda */
+        border-radius: 5px; /* Borda arredondada */
+        text-decoration: none; /* Remove decoração de texto */
+        font-size: 16px; /* Tamanho da fonte */
+    }
+
+      .container {
+          text-align: center; /* Centralizar conteúdo horizontalmente */
+          margin-top: 20px; /* Espaço superior para melhor visualização */
+      }
+
+      h2 {
+          font-family: 'Arial', sans-serif; /* Definir a fonte do título */
+          color: #444; /* Cor do título */
+          font-size: 24px; /* Tamanho do título */
+      }
+
+      table {
+          width: 80%; /* Largura da tabela */
+          margin: 0 auto; /* Centralizar a tabela horizontalmente */
+          border-collapse: collapse; /* Colapsar as bordas das células */
+      }
+
+      th, td {
+          border: 1px solid #ddd; /* Adicionar borda às células */
+          padding: 8px; /* Adicionar espaço interno */
+      }
+
+      th {
+          background-color: #9cd6c8; /* Cor de fundo do cabeçalho da tabela */
+          color: #e57c3a; /* Cor do texto do cabeçalho da tabela */
+      }
+
+      tr:nth-child(even) {
+          background-color: #f2f2f2; /* Cor de fundo para linhas pares */
+      }
+
+      input[type=text] {
+          width: 20%; /* Largura dos campos de entrada */
+          padding: 6px; /* Espaçamento interno */
+          margin: 3px 0; /* Margem superior e inferior */
+          box-sizing: border-box; /* Inclui o padding e a borda no tamanho total */
+          font-size: 14px; /* Tamanho da fonte */
+      }
+
+      .success-message {
+          color: green; /* Cor do texto de sucesso */
+          font-weight: bold; /* Negrito */
+          margin-top: 10px; /* Espaço superior */
+      }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Resultado da Busca</h2>
+    <form action="{{ url_for('search') }}" method="post">
+      <label for="nome">Nome do Livro:</label>
+      <input type="text" id="nome" name="nome"><br>
+
+      <label for="autor">Autor:</label>
+      <input type="text" id="autor" name="autor"><br>
+
+      <label for="editora">Editora:</label>
+      <input type="text" id="editora" name="editora"><br>
+
+      <input type="submit" value="Buscar">
+    </form>
+
+    {% if resultados %}
+      <p class="success-message">O livro foi encontrado:</p>
+      <table>
+        <tr>
+          <th>Nome</th>
+          <th>Autor</th>
+          <th>Editora</th>
+        </tr>
+        {% for livro in resultados %}
+        <tr>
+          <td>{{ livro.nome }}</td>
+          <td>{{ livro.autor }}</td>
+          <td>{{ livro.editora }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+
+    {% endif %}
+    <br>
+    <a href="{{ url_for('index') }}">Voltar para a página inicial</a>
+  </div>
+</body>
+
+</html>
