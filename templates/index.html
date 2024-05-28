@@ -98,6 +98,7 @@
             background: white;
             color: black;
             animation: vibrar 0.5s ease-in-out infinite both;
+            margin-left: 1rem;
         }
         @keyframes vibrar {
             0% {
@@ -119,10 +120,10 @@
         </div>
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">Sobre</a></li>
+            <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
             <li><a href="#">Preços</a></li>
-            <li><a href="#">Serviços</a></li>
-            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Contatos</a></li>
+            <li><a href="{{ url_for('login') }}">Login/Cadastro</a></li>
         </ul>
     </nav>
 
@@ -130,10 +131,9 @@
         <div class="texto">
             <h1 class="titulo">Bem vindos à Starlight Library</h1>
             <h2 class="sub_titulo">Explorar o mundo dos livros com liberdade e autonomia</h2>
-            <div class="botoes">
-                <a href="{{ url_for('search') }}" class="n-overlay">Procurar Livro</a>
-                <a href="{{ url_for('create') }}" class="overlay">Adicionar um Livro</a>
-            </div>
+            
+             
+       
         </div>
     </section>
 
@@ -150,3 +150,4 @@
     </section>
 </body>
 </html>
+
