@@ -1,52 +1,152 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <title>Bem vindos à Starlight Library</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Starlight Library</title>
     <style>
-        body {
-            background-color: #f1ffcf; /* Cor de fundo do corpo da página */
-            font-family: Arial, sans-serif; /* Define a fonte Arial para o corpo do documento */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
-
-        .title {
-            background-color: #9cd6c8; /* Cor de fundo do título */
-            padding: 15px; /* Adiciona espaço interno ao redor do título */
-            color: #e57c3a; /* Cor do texto do título */
-            text-align: center; /* Centraliza o texto */
+        nav {
+            background-color: #18929D;
+            padding: 10px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-
-        .container {
-            text-align: center; /* Centraliza conteúdo horizontalmente */
-            margin-top: 30px; /* Espaço superior para melhor visualização */
+        nav .logo a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 35px;
+            font-weight: 600;
         }
-
-        .btn {
-            background-color: #ffd700; /* Cor de fundo do botão */
-            color: #333; /* Cor do texto do botão */
-            padding: 10px 20px; /* Espaçamento interno */
-            border: none; /* Remove a borda */
-            border-radius: 5px; /* Borda arredondada */
-            text-decoration: none; /* Remove decoração de texto */
-            font-size: 16px; /* Tamanho da fonte */
-            margin: 10px; /* Adiciona margem ao botão */
+        nav ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            padding: 10px;
+        }
+        nav li {
+            margin-left: 7px;
+        }
+        nav li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        nav li a:hover {
+            background-color: white;
+            color: black;
+        }
+        .banner {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.281), rgba(0,0,0,0.308)), url('https://img.freepik.com/fotos-gratis/arranjo-de-livros-com-espaco-de-copia_23-2150264106.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .texto .titulo {
+            color: #fff;
+            font-size: 60px;
+            font-weight: 600;
+        }
+        .texto .sub_titulo {
+            color: #fff;
+            font-size: 58px;
+            font-weight: 600;
+        }
+        .texto .botoes {
+            margin-top: 30px;
+        }
+        .texto .botoes a {
+            display: inline-block;
+            padding: 15px 30px; /* Ajuste do preenchimento para tornar o botão proporcional ao texto */
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            outline: none;
+            transition: 0.3s;
+        }
+        .texto .botoes .n-overlay {
+            color: white;
+            background: none;
+            border: 2px solid white;
+        }
+        .texto .botoes .n-overlay:hover {
+            color: black;
+            background-color: white;
+        }
+        .texto .botoes .overlay {
+            background: white;
+            color: black;
+            animation: vibrar 0.5s ease-in-out infinite both;
+        }
+        @keyframes vibrar {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
     </style>
 </head>
 <body>
-    <h1 class="title">Bem vindos à Starlight Library</h1>
-    <h3>Na Starlight Library, nossa visão é simples: queremos capacitar nossos leitores a explorar o mundo dos livros com liberdade e autonomia. Acreditamos que a tecnologia pode desempenhar um papel fundamental nessa jornada. Imagine poder doar ou alugar um livro com apenas alguns cliques, sem a necessidade de intermediários. Na nossa biblioteca, estamos comprometidos em oferecer uma experiência moderna e acessível, onde cada leitor possa navegar por nosso acervo e se conectar com histórias que os inspiram, tudo isso com o poder da tecnologia ao alcance de suas mãos. Junte-se a nós e embarque nessa jornada de descoberta e aprendizado na Starlight Library </h3>
-    <div class="container">
-        <a href="{{ url_for('search') }}" class="btn">Procurar Livro</a>
-        <a href="{{ url_for('create') }}" class="btn">Adicionar um Novo Livro</a>
-    </div>
-    <ul>
-      {% for funcionario in funcionarios %}
-        <li>
-          {{ funcionario.nome_completo }} ({{ funcionario.rg }})
-          <a href="{{ url_for('update', id=funcionario.id) }}">Editar</a>
-          <a href="{{ url_for('delete', id=funcionario.id) }}">Excluir</a>
-        </li>
-      {% endfor %}
-    </ul>
+    <nav>
+        <div class="logo">
+            <a href="index.html">Starlight Library</a>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Preços</a></li>
+            <li><a href="#">Serviços</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section class="banner">
+        <div class="texto">
+            <h1 class="titulo">Bem vindos à Starlight Library</h1>
+            <h2 class="sub_titulo">Explorar o mundo dos livros com liberdade e autonomia</h2>
+            <div class="botoes">
+                <a href="{{ url_for('search') }}" class="n-overlay">Procurar Livro</a>
+                <a href="{{ url_for('create') }}" class="overlay">Adicionar um Livro</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="funcionarios">
+        <ul>
+            {% for funcionario in funcionarios %}
+            <li>
+                {{ funcionario.nome_completo }} ({{ funcionario.rg }})
+                <a href="{{ url_for('update', id=funcionario.id) }}">Editar</a>
+                <a href="{{ url_for('delete', id=funcionario.id) }}">Excluir</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
 </body>
 </html>
