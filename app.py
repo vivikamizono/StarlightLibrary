@@ -55,13 +55,18 @@ def search():
         termo_autor = request.form["autor"]
         termo_editora = request.form["editora"]
         
-        resultados = Livro.query.filter(
-            (Livro.nome == termo_nome) & 
-            (Livro.autor == termo_autor) & 
-            (Livro.editora == termo_editora)
-        ).all()
+        query = Livro.query
+        
+        if termo_nome:
+            query = query.filter(Livro.nome.ilike(f"%{termo_nome}%"))
+        if termo_autor:
+            query = query.filter(Livro.autor.ilike(f"%{termo_autor}%"))
+        if termo_editora:
+            query = query.filter(Livro.editora.ilike(f"%{termo_editora}%"))
+        
+        resultados = query.all()
+        
     return render_template("search.html", resultados=resultados)
-
 
 if __name__ == "__main__":
     app.run(debug=True)
