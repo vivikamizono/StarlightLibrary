@@ -84,21 +84,18 @@
             cursor: pointer;
             outline: none;
             transition: 0.3s;
+            margin-right: 10px; /* Adicionado margem direita para separação */
         }
-        .texto .botoes .n-overlay {
-            color: white;
-            background: none;
-            border: 2px solid white;
+        .texto .botoes a.n-overlay {
+            background: #fff;
+            color: #000;
         }
-        .texto .botoes .n-overlay:hover {
-            color: black;
-            background-color: white;
+        .texto .botoes a.overlay {
+            background: #000;
+            color: #fff;
         }
-        .texto .botoes .overlay {
-            background: white;
-            color: black;
-            animation: vibrar 0.5s ease-in-out infinite both;
-            margin-left: 1rem;
+        .texto .botoes a:hover {
+            transform: translateY(-3px); /* Efeito de levantamento suave */
         }
         @keyframes vibrar {
             0% {
@@ -120,7 +117,7 @@
         </div>
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+            <li><a href="{{ url_for('sobre_nos') }}">Sobre</a></li>
             <li><a href="#">Preços</a></li>
             <li><a href="#">Contatos</a></li>
             <li><a href="{{ url_for('login') }}">Login/Cadastro</a></li>
@@ -132,8 +129,10 @@
             <h1 class="titulo">Bem vindos à Starlight Library</h1>
             <h2 class="sub_titulo">Explorar o mundo dos livros com liberdade e autonomia</h2>
             
-             
-       
+            <div class="botoes">
+                <a href="search" class="n-overlay">Procurar Livro</a>
+                <a href="create" class="overlay">Cadastrar Livro</a>
+            </div>
         </div>
     </section>
 
