@@ -8,6 +8,17 @@
     <link rel="stylesheet" href={{url_for('static', filename='css/style.css') }}>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <style>
+        .container {
+            position: relative;
+        }
+
+        .btn-back {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -95,6 +106,7 @@
                 </form>
             </div><!-- second column -->
         </div><!-- second-content -->
+        <a href="index" class="btn btn-primary btn-back">Voltar para o Home</a>
     </div>
     <script src={{url_for('static', filename='js/app.js') }}></script>
 </body>
