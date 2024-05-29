@@ -126,6 +126,10 @@ def login():
         return redirect(url_for("index"))
     return render_template("login.html")
 
+@app.route('/sobre-nos')
+def sobre_nos():
+    return render_template('sobre_nos.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
 
